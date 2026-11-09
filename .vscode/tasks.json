@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "0. Preparar entorno (.venv + dependencias)",
+      "type": "shell",
+      "command": "python3 -m venv .venv && .venv/bin/pip install -r requirements.txt",
+      "problemMatcher": []
+    },
+    {
+      "label": "1. Extraer 10-K de la SEC",
+      "type": "shell",
+      "command": ".venv/bin/python scripts/01_extraer_sec.py",
+      "problemMatcher": []
+    },
+    {
+      "label": "1b. Extraer 10-K de la SEC (sin caché)",
+      "type": "shell",
+      "command": ".venv/bin/python scripts/01_extraer_sec.py --refrescar",
+      "problemMatcher": []
+    },
+    {
+      "label": "2. Calcular ratios (DuckDB)",
+      "type": "shell",
+      "command": ".venv/bin/python scripts/02_calcular_ratios.py",
+      "problemMatcher": []
+    },
+    {
+      "label": "Pipeline completo (1 + 2)",
+      "dependsOrder": "sequence",
+      "dependsOn": ["1. Extraer 10-K de la SEC", "2. Calcular ratios (DuckDB)"],
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+datos/raw/
+__pycache__/
+.venv/
+.DS_Store
+.env
+.agents/
+.claude/

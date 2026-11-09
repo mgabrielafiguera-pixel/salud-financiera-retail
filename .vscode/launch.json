@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Depurar: 01 extraer SEC",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/01_extraer_sec.py",
+      "cwd": "${workspaceFolder}",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Depurar: 02 calcular ratios",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/02_calcular_ratios.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    }
+  ]
+}
